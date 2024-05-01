@@ -5,15 +5,25 @@ import { Pencil1Icon } from "@radix-ui/react-icons";
 import { MAX_CHARACTERS } from "../../lib/constants";
 // types
 import { TFeedbackFormProps } from "../../lib/types";
+// stores
+import { useFeedbackItemsStore } from "../../stores/feedbackItemsStore";
 // labels
 import { buttonLabels, feedBackLabels } from "../../resources/labels";
+// placeholders
 import { placeholders } from "../../resources/placeholders";
+// messages
+import { messages } from "../../resources/messages";
 
 export default function FeedbackForm({ onAddToList }: TFeedbackFormProps) {
+  // stores
+  const updateMessage = useFeedbackItemsStore((state) => state.updateMessage);
+
+  // states
   const [text, setText] = useState("");
   const [showValidIndicator, setShowValidIndicator] = useState(false);
   const [showInvalidIndicator, setShowInvalidIndicator] = useState(false);
 
+  // handlers
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const newText = e.target.value;
 
@@ -26,14 +36,16 @@ export default function FeedbackForm({ onAddToList }: TFeedbackFormProps) {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
-    // basic validation
-    if (text.includes("#") && text.length >= 5) {
+    if (text === "") {
+      updateMessage(messages.emptyReview, true);
+      return;
+    } else if (text.includes("#") && text.length >= 5) {
       setShowValidIndicator(true);
-      setTimeout(() => setShowInvalidIndicator(false), 2000);
+      setTimeout(() => setShowValidIndicator(false), 2000);
     } else {
       setShowInvalidIndicator(true);
       setTimeout(() => setShowInvalidIndicator(false), 2000);
+      updateMessage(messages.companyNameMissing, true);
       return;
     }
 
@@ -43,12 +55,13 @@ export default function FeedbackForm({ onAddToList }: TFeedbackFormProps) {
 
   return (
     <form
-      className={`form ${showValidIndicator ? "form--valid" : ""} ${
-        showInvalidIndicator ? "form--invalid" : ""
+      className={`form ${showValidIndicator ? "form__status--valid" : ""} ${
+        showInvalidIndicator ? "form__status--invalid" : ""
       }`}
       onSubmit={handleSubmit}
     >
       <textarea
+        className="form__textarea"
         value={text}
         onChange={handleChange}
         id="feedback-textarea"
@@ -56,16 +69,16 @@ export default function FeedbackForm({ onAddToList }: TFeedbackFormProps) {
         spellCheck={false}
       />
 
-      <label htmlFor="feedback-textarea">
+      <label htmlFor="feedback-textarea" className="form__label">
         {feedBackLabels.enterFeedback}
         <Pencil1Icon />
       </label>
 
-      <div>
-        <p className="u-italic">
+      <div className="form__footer">
+        <p className="form__desc">
           {text.length}/{MAX_CHARACTERS}
         </p>
-        <button>{buttonLabels.submit}</button>
+        <button className="form__btn">{buttonLabels.submit}</button>
       </div>
     </form>
   );

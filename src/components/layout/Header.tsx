@@ -7,10 +7,11 @@ import PageHeading from "../PageHeading";
 import Pattern from "../Pattern";
 
 export default function Header() {
+  // store
   const addItemToList = useFeedbackItemsStore((state) => state.addItemToList);
 
   return (
-    <header>
+    <header className="header">
       <Pattern />
       <Logo />
       <PageHeading />

@@ -1,6 +1,6 @@
 export type TFeedbackItem = {
   id: number;
-  upVoteCount: number;
+  upvoteCount: number;
   company: string;
   text: string;
   daysAgo: number;
@@ -42,15 +42,27 @@ export type THashtagItemProps = {
 
 export type TErrorMessage = { message: string };
 
+export type TMessageType = "success" | "error";
+
+export type TMessage = {
+  message: string;
+  type: TMessageType;
+  onClose: () => void;
+};
+
 export type TStore = {
   feedbackItems: TFeedbackItem[];
   isLoading: boolean;
-  errorMessage: string;
+  message: string;
+  messageType: string;
   selectedCompany: string;
 
   addItemToList: (text: string) => Promise<void>;
   selectCompany: (company: string) => void;
   fetchFeedbackItems: () => Promise<void>;
+  clearFilter: () => void;
   getCompanyList: () => string[];
   getFilteredFeedbackItems: () => TFeedbackItem[];
+  closeMessagePopup: () => void;
+  updateMessage: (message: string, isError: boolean) => void;
 };

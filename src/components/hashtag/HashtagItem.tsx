@@ -6,8 +6,8 @@ export const HashtagItem = ({
   onSelectCompany,
 }: THashtagItemProps) => {
   return (
-    <li>
-      <button onClick={() => onSelectCompany(company)}>#{company}</button>
+    <li className="hashtags__item">
+      <button className="hashtags__item--btn" onClick={() => onSelectCompany(company)}>#{company}</button>
     </li>
   );
 };

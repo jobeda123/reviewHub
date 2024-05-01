@@ -4,7 +4,7 @@ import Header from "./Header";
 
 export default function Container() {
   return (
-    <main className="container">
+    <main className="main_container">
       <Header />
       <FeedbackList />
     </main>

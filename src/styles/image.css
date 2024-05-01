@@ -1,0 +1,26 @@
+/* pattern */
+.pattern_img {
+  position: absolute;
+  top: 0;
+  z-index: 0;
+}
+
+.pattern_img::selection {
+  background-color: initial;
+}
+
+/* logo */
+.logo_img {
+  height: 27.5px;
+}
+
+.logo_img::selection {
+  background-color: initial;
+}
+
+.logo_img img {
+  position: relative;
+  z-index: 1;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}

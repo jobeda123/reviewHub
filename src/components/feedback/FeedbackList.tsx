@@ -2,7 +2,6 @@ import { useEffect } from "react";
 // components
 import FeedbackItem from "./FeedbackItem";
 import Spinner from "../Spinner";
-import ErrorMessage from "../ErrorMessage";
 // types
 import { TFeedbackItem } from "../../lib/types";
 // stores
@@ -13,8 +12,6 @@ export default function FeedbackList() {
     (state) => state.fetchFeedbackItems
   );
   const isLoading = useFeedbackItemsStore((state) => state.isLoading);
-  const errorMessage = useFeedbackItemsStore((state) => state.errorMessage);
-  
   const filteredFeedbackItems = useFeedbackItemsStore((state) =>
     state.getFilteredFeedbackItems()
   );
@@ -24,10 +21,8 @@ export default function FeedbackList() {
   }, []);
 
   return (
-    <ol className="feedback-list">
+    <ol className="feedback__list">
       {isLoading && <Spinner />}
-
-      {errorMessage && <ErrorMessage message={errorMessage} />}
 
       {filteredFeedbackItems.length > 0 &&
         filteredFeedbackItems.map((feedbackItem: TFeedbackItem) => (

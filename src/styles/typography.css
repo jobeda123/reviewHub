@@ -1,0 +1,90 @@
+/* page heading */
+.page--heading span {
+  font-style: italic;
+  opacity: 0.85;
+}
+
+.page--heading {
+  font-weight: 700;
+  font-size: 36px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  color: rgba(255, 255, 255, 0.93);
+}
+
+/* message */
+.message_text {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* textarea */
+.form__textarea {
+  width: 100%;
+  height: 85px;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 18px;
+  padding: 15px 20px;
+  caret-color: rgba(255, 255, 255, 0.25);
+}
+
+.form__textarea::placeholder {
+  opacity: 0;
+}
+
+.form__textarea:focus + .form__label,
+.form__textarea:not(:placeholder-shown) + .form__label {
+  opacity: 0;
+}
+
+.form__label {
+  position: absolute;
+  top: 13.5px;
+  left: 20px;
+  color: #fff;
+  opacity: 0.42;
+  pointer-events: none;
+  font-size: 18px;
+}
+
+.form__label svg {
+  margin-bottom: -3px;
+  margin-left: 4px;
+  color: #fff;
+  opacity: 0.5;
+}
+
+.form__desc {
+  font-weight: 500;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.25);
+  pointer-events: none;
+  font-style: italic;
+}
+
+@media (max-width: 775px) {
+  .page--heading {
+    font-size: 28px;
+  }
+
+  .message_text {
+    font-size: 14px;
+  }
+
+  .form__label,
+  .form__textarea {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 525px) {
+  .page--heading {
+    font-size: 25px;
+  }
+
+  label {
+    padding-right: 20px;
+  }
+}

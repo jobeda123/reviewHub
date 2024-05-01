@@ -1,12 +1,14 @@
 // labels
 import { footerLabels } from "../../resources/labels";
+// functions
+import { getCurrentYear } from "../../utils/functions";
 
 export default function Footer() {
   return (
     <footer className="footer">
-      <small>
-        <p>&copy; {footerLabels.copyRight}</p>
-      </small>
+      <p className="footer__label">
+        {footerLabels.copyRight} &copy; {getCurrentYear()}
+      </p>
     </footer>
   );
 }

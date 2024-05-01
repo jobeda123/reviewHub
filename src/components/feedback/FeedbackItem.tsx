@@ -3,17 +3,19 @@ import { useState } from "react";
 import { TriangleUpIcon } from "@radix-ui/react-icons";
 // types
 import { FeedbackItemProps } from "../../lib/types";
+// labels
+import { feedBackLabels } from "../../resources/labels";
 
 export default function FeedbackItem({
-  feedbackItem: { id, upVoteCount, company, text, daysAgo, created },
+  feedbackItem: { company, upvoteCount, text, daysAgo, badgeLetter },
 }: FeedbackItemProps) {
   const [open, setOpen] = useState(false);
-  const [upvoteCount, setUpvoteCount] = useState(0);
+  const [currentUpVote, setCurrentUpVoteCount] = useState(upvoteCount);
 
-  const handlerUpvote = (
+  const handlerUpVote = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
-    setUpvoteCount((prev) => ++prev);
+    setCurrentUpVoteCount((prev) => ++prev);
     e.currentTarget.disabled = true;
     e.stopPropagation();
   };
@@ -21,23 +23,25 @@ export default function FeedbackItem({
   return (
     <li
       onClick={() => setOpen((prev) => !prev)}
-      className={`feedback ${open ? "feedback--expand" : ""}`}
+      className={`feedback__item ${open ? "feedback__item--expand" : ""}`}
     >
-      <button onClick={handlerUpvote}>
-        <TriangleUpIcon />
-        <span>{upvoteCount}</span>
+      <button className="feedback__item__btn" onClick={handlerUpVote}>
+        <TriangleUpIcon className="feedback__item__btn--icon"/>
+        <span className="feedback__item__btn--label">{currentUpVote}</span>
       </button>
 
-      <div>
-        <p>{company?.split("")[0]}</p>
+      <div className="feedback__item__badge">
+        <p className="feedback__item__badge--label">{badgeLetter}</p>
       </div>
 
-      <div>
-        <p>{company}</p>
-        <p>{text}</p>
+      <div className="feedback__item__content">
+        <p className="feedback__item__content--company">{company}</p>
+        <p className="feedback__item__content--desc">{text}</p>
       </div>
 
-      <p>{daysAgo}d</p>
+      <p className="feedback__item__date">
+        {daysAgo === 0 ? feedBackLabels.new : `${daysAgo}d`}
+      </p>
     </li>
   );
 }

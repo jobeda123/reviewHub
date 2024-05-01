@@ -1,0 +1,34 @@
+/* FOOTER */
+.footer {
+  position: absolute;
+  left: -120px;
+  top: 50%;
+  transform: translateY(-50%) rotate(-90deg);
+}
+
+/* COPYRIGHT */
+.footer__label {
+  color: #a6adb5;
+  font-size: 14px;
+}
+
+.footer__label {
+  opacity: 0.4;
+}
+
+@media (max-width: 525px) {
+  .footer {
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 1050px) {
+  .footer {
+    transform: initial;
+    position: relative;
+    left: initial;
+    bottom: initial;
+    text-align: center;
+    margin-top: 20px;
+  }
+}
