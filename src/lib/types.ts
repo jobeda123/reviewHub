@@ -46,7 +46,8 @@ export type TMessageType = "success" | "error";
 
 export type TMessage = {
   message: string;
-  type: TMessageType;
+  type: string;
+  // type: TMessageType;
   onClose: () => void;
 };
 
