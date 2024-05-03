@@ -3,9 +3,9 @@ import { useEffect } from "react";
 import Footer from "./layout/Footer";
 import HashtagList from "./hashtag/HashtagList";
 import Container from "./layout/Container";
+import Message from "./Message";
 // store
 import { useFeedbackItemsStore } from "../stores/feedbackItemsStore";
-import Message from "./Message";
 
 function App() {
   const fetchFeedbackItems = useFeedbackItemsStore(

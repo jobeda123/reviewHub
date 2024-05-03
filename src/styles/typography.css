@@ -1,16 +1,17 @@
 /* page heading */
-.page--heading span {
-  font-style: italic;
-  opacity: 0.85;
-}
-
 .page--heading {
   font-weight: 700;
-  font-size: 36px;
+  font-size: 22px;
   text-align: center;
   position: relative;
   z-index: 1;
   color: rgba(255, 255, 255, 0.93);
+  margin-top: 25px;
+}
+
+.page--heading span {
+  font-style: italic;
+  opacity: 0.85;
 }
 
 /* message */
@@ -65,10 +66,6 @@
 }
 
 @media (max-width: 775px) {
-  .page--heading {
-    font-size: 28px;
-  }
-
   .message_text {
     font-size: 14px;
   }
@@ -81,7 +78,7 @@
 
 @media (max-width: 525px) {
   .page--heading {
-    font-size: 25px;
+    font-size: 18px;
   }
 
   label {

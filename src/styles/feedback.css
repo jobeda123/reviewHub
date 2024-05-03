@@ -1,4 +1,4 @@
-/* FEEDBACKS */
+/* feedback */
 .feedback__list {
   height: 577px;
   overflow-y: scroll;
@@ -58,36 +58,41 @@
 }
 
 .feedback__item:nth-child(6n + 2) > div:nth-child(2) {
-  background-color: #6d4989;
+  /* lavendar color */
+  background-color: #8b93ff;
 }
 
 .feedback__item:nth-child(6n + 3) > div:nth-child(2) {
-  background-color: #3c7789;
+  /* pink color */
+  background-color: #e1afd1;
 }
 
 .feedback__item:nth-child(6n + 4) > div:nth-child(2) {
-  background-color: #897749;
+  /* light bluish color */
+  background-color: #7c93c3;
 }
 
 .feedback__item:nth-child(6n + 5) > div:nth-child(2) {
-  background-color: #4a8b6b;
+  /* light purple color */
+  background-color: #917fb3;
 }
 
 .feedback__item:nth-child(6n + 6) > div:nth-child(2) {
-  background-color: #495789;
+  /* gray color */
+  background-color: #9babb8;
 }
 
 .feedback__item__badge {
-  height: 49px;
-  width: 49px;
+  height: 50px;
+  width: 50px;
   border-radius: 6px;
-  background-color: #564989;
+  /* brick color */
+  background-color: #a7727d;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 16px;
+  margin: 0px 15px;
   transition: all 0.2s;
-  margin-left: 20px;
 }
 
 .feedback__item__badge--label {
@@ -132,7 +137,7 @@
   transition: all 0.2s;
 }
 
-/* UPVOTE BTN */
+/* upvote icon btn */
 .feedback__item__btn {
   cursor: pointer;
   height: 40px;
@@ -176,10 +181,30 @@
   margin-top: -1px;
 }
 
-/* MEDIA QUERIES */
+.feedback__date--show {
+  display: none;
+}
+
+/* media queries */
+@media (max-width: 1050px) {
+  .feedback__list {
+    margin-top: 100px;
+  }
+}
+
 @media (max-width: 775px) {
+  .feedback__item {
+    grid-template-columns: 40px 70px 6fr 1fr;
+  }
+
   .feedback__item__badge {
-    min-width: 49px;
+    width: 45px;
+    height: 45px;
+    margin: 0px 10px;
+  }
+
+  .feedback__item__badge--label {
+    font-size: 20px;
   }
 
   .feedback__content {
@@ -193,8 +218,9 @@
 
 @media (max-width: 525px) {
   .feedback__item {
-    grid-template-columns: 40px 85px 1fr;
+    grid-template-columns: 40px 70px 1fr;
     padding: 10px 15px;
+    height: 85px;
   }
 
   .feedback__item--expand {
@@ -203,7 +229,12 @@
     padding-bottom: 10px;
   }
 
-  .feedback__date {
+  .feedback__date--show {
+    display: block;
+    margin-top: 5px;
+  }
+
+  .feedback__date--hide {
     display: none;
   }
 }

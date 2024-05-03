@@ -4,7 +4,6 @@ import { useFeedbackItemsStore } from "../../stores/feedbackItemsStore";
 import FeedbackForm from "../feedback/FeedbackForm";
 import Logo from "../Logo";
 import PageHeading from "../PageHeading";
-import Pattern from "../Pattern";
 
 export default function Header() {
   // store
@@ -12,7 +11,6 @@ export default function Header() {
 
   return (
     <header className="header">
-      <Pattern />
       <Logo />
       <PageHeading />
       <FeedbackForm onAddToList={addItemToList} />

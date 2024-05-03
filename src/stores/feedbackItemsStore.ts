@@ -27,8 +27,11 @@ export const useFeedbackItemsStore = create<TStore>((set, get) => ({
       badgeLetter: getCompanyBadge(text),
     };
 
-    set((state) => ({
-      feedbackItems: [...state.feedbackItems, newItem],
+    const updatedArr = [...get().feedbackItems, newItem];
+    const sortedArr = updatedArr.sort((a, b) => a.daysAgo - b.daysAgo);
+
+    set(() => ({
+      feedbackItems: [...sortedArr],
     }));
 
     try {
@@ -71,9 +74,12 @@ export const useFeedbackItemsStore = create<TStore>((set, get) => ({
       }
 
       const fetchData = await fetchResponse.json();
+      const sortedArr = fetchData.feedbacks.sort(
+        (a: TFeedbackItem, b: TFeedbackItem) => a.daysAgo - b.daysAgo
+      );
 
       set(() => ({
-        feedbackItems: [...fetchData.feedbacks],
+        feedbackItems: [...sortedArr],
         isLoading: false,
         message: messages.clear,
       }));

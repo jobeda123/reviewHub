@@ -45,3 +45,9 @@ svg.message__btn-close {
     padding: 7px 20px;
   }
 }
+
+@media (max-width: 525px) {
+  .form__btn {
+    padding: 7px 15px;
+  }
+}

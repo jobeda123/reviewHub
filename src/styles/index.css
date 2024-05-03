@@ -75,13 +75,6 @@ body {
   height: 850px;
 }
 
-/* MEDIA QUERIES */
-/* @media (max-height: 925px) {
-  body {
-    padding: 60px 0;
-  }
-} */
-
 @media (max-width: 1050px) {
   .app {
     flex-direction: column-reverse;

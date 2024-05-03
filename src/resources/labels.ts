@@ -13,5 +13,5 @@ export const buttonLabels = {
 };
 
 export const titles = {
-  heading: "Give Feedback. <span>Publicly.</span>",
+  heading: "Share Feedback. <span>Freely.</span>",
 };

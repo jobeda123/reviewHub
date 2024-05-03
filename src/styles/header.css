@@ -1,7 +1,8 @@
 /* header */
 .header {
   height: 277px;
-  background-color: #121618;
+  background-color: #191825;
+  /* background-image: linear-gradient(0deg, #191919, #040D12); */
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -1,5 +1,5 @@
 // images
-import logo from "../resources/images/logo.svg";
+import logo from "../resources/images/logo.png";
 
 export default function Logo() {
   return (

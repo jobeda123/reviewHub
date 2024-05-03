@@ -1,21 +1,6 @@
-/* pattern */
-.pattern_img {
-  position: absolute;
-  top: 0;
-  z-index: 0;
-}
-
-.pattern_img::selection {
-  background-color: initial;
-}
-
 /* logo */
 .logo_img {
-  height: 27.5px;
-}
-
-.logo_img::selection {
-  background-color: initial;
+  height: 30px;
 }
 
 .logo_img img {
